@@ -7,23 +7,129 @@
 
     <!-- Reveal.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/night.css" id="theme">
 
     <style>
-        /* Estilo opcional */
-        h1,
-        h2,
-        h3 {
-            text-transform: none;
+        /* Tipografías y espaciado mejorado */
+        .reveal {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        ul {
+        .reveal h1 {
+            text-transform: none;
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            letter-spacing: -0.02em;
+        }
+
+        .reveal h2 {
+            text-transform: none;
+            font-size: 1.6em;
+            font-weight: 600;
+            margin-bottom: 0.4em;
+            letter-spacing: -0.01em;
+        }
+
+        .reveal h3 {
+            text-transform: none;
+            font-size: 1.3em;
+            font-weight: 500;
+            margin-bottom: 0.4em;
+        }
+
+        .reveal h4 {
+            text-transform: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 0.4em;
+            color: #e0e0e0;
+        }
+
+        .reveal h5 {
+            text-transform: none;
+            font-size: 1em;
+            font-weight: 500;
+            margin-top: 0.6em;
+            margin-bottom: 0.3em;
+            color: #d0d0d0;
+        }
+
+        .reveal p {
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 0.6em;
+            max-width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reveal ul {
             list-style: none;
             padding: 0;
+            max-width: 95%;
+            margin: 0 auto;
         }
 
-        ul li {
-            margin-bottom: 8px;
+        .reveal ul li {
+            margin-bottom: 0.5em;
+            font-size: 0.9em;
+            line-height: 1.5;
+            padding-left: 1.2em;
+            position: relative;
+        }
+
+        .reveal ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4a9eff;
+            font-size: 1.2em;
+        }
+
+        .reveal ul li strong {
+            color: #6bb6ff;
+            font-weight: 600;
+        }
+
+        /* Mejoras en secciones */
+        .reveal section {
+            text-align: left;
+        }
+
+        .reveal section.center {
+            text-align: center;
+        }
+
+        /* Espaciado mejorado para imágenes */
+        .reveal img {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Tamaños específicos para imágenes según contexto */
+        .reveal section img[src*="Neumann"],
+        .reveal section img[src*="Ulam"] {
+            width: 140px !important;
+        }
+        
+        .reveal section img[src*="casino"] {
+            width: 280px !important;
+        }
+        
+        .reveal section img[src*="normal"],
+        .reveal section img[src*="uniforme"] {
+            width: 260px !important;
+        }
+        
+        .reveal section img[src*="leyde"] {
+            width: 360px !important;
+        }
+
+        /* Ajustes de contenedores flex */
+        .reveal section [style*="display: flex"] {
+            margin-top: 0.8em;
         }
     </style>
 </head>
@@ -33,7 +139,7 @@
         <div class="slides">
 
             <!-- Slide 1 — Presentación del equipo -->
-            <section>
+            <section class="center">
                 <h1>Grupo 2</h1>
 
                 <ul>
@@ -47,7 +153,7 @@
             <section>
 
                 <!-- Slide 2.1 -->
-                <section>
+                <section class="center">
                     <h1>Simulacion de Monte carlo</h1>
                     <p>Introducción general</p>
                 </section>
@@ -68,15 +174,15 @@
                         Guerra Mundial.
                     </p>
 
-                    <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px;">
+                    <div style="display: flex; justify-content: center; gap: 30px; margin-top: 15px;">
                         <div style="text-align: center;">
-                            <img src="img/Neumann.png" alt="John von Neumann" style="width: 160px; border-radius: 8px;">
-                            <p>John von Neumann</p>
+                            <img src="img/Neumann.png" alt="John von Neumann" style="border-radius: 8px;">
+                            <p style="font-size: 0.85em; margin-top: 5px;">John von Neumann</p>
                         </div>
 
                         <div style="text-align: center;">
-                            <img src="img/Ulam.jpg" alt="Stanislaw Ulam" style="width: 160px; border-radius: 8px;">
-                            <p>Stanislaw Ulam</p>
+                            <img src="img/Ulam.jpg" alt="Stanislaw Ulam" style="border-radius: 8px;">
+                            <p style="font-size: 0.85em; margin-top: 5px;">Stanislaw Ulam</p>
                         </div>
                     </div>
                 </section>
@@ -88,11 +194,11 @@
                         fundamental en el planteamiento del modelo, similar a los juegos del casino.
                     </p>
 
-                    <div style="display: flex; justify-content: center; margin-top: 25px;">
+                    <div style="display: flex; justify-content: center; margin-top: 15px;">
                         <div style="text-align: center;">
                             <img src="img/casino.jpg" alt="Casino de Montecarlo"
-                                style="width: 320px; border-radius: 10px;">
-                            <p style="margin-top: 10px;">Casino de Montecarlo</p>
+                                style="border-radius: 10px;">
+                            <p style="font-size: 0.85em; margin-top: 8px;">Casino de Montecarlo</p>
                         </div>
                     </div>
                 </section>
@@ -140,14 +246,14 @@
                         Los valores extremos son menos probables.
                     </p>
 
-                    <div style="display: flex; justify-content: center; margin: 15px 0;">
-                        <img src="img/normal.png" alt="Distribución Normal" style="width: 300px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: center; margin: 10px 0;">
+                        <img src="img/normal.png" alt="Distribución Normal" style="border-radius: 8px;">
                     </div>
 
                 </section>
 
                 <section>
-                    <h5 style="margin-top: 30px;">Distribución Uniforme</h5>
+                    <h5 style="margin-top: 15px;">Distribución Uniforme</h5>
                     <p>
                         Todos los valores tienen la misma probabilidad.<br>
                         No hay preferencia por ningún número en particular.<br>
@@ -155,9 +261,9 @@
                         posibles.
                     </p>
 
-                    <div style="display: flex; justify-content: center; margin-top: 15px;">
+                    <div style="display: flex; justify-content: center; margin-top: 10px;">
                         <img src="img/uniforme.png" alt="Distribución Uniforme"
-                            style="width: 300px; border-radius: 8px;">
+                            style="border-radius: 8px;">
                     </div>
                 </section>
 
@@ -181,9 +287,9 @@
                         el promedio de los resultados se acerca cada vez más al valor real esperado.
                     </p>
 
-                    <div style="display: flex; justify-content: center; margin-top: 20px;">
+                    <div style="display: flex; justify-content: center; margin-top: 15px;">
                         <img src="img/leyde.png" alt="Ley de los Grandes Números"
-                            style="width: 420px; border-radius: 10px;">
+                            style="border-radius: 10px;">
                     </div>
                 </section>
 
@@ -340,7 +446,10 @@
     <script>
         Reveal.initialize({
             hash: true,
-            slideNumber: true
+            slideNumber: true,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade'
         });
     </script>
 </body>
