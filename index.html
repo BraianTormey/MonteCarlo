@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Presentación Reveal.js</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css" id="theme">
+
+    <style>
+        /* Estilo opcional */
+        h1,
+        h2,
+        h3 {
+            text-transform: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1 — Presentación del equipo -->
+            <section>
+                <h1>Grupo 2</h1>
+
+                <ul>
+                    <li><strong>Braian Tormey</strong></li>
+                    <li><strong>Dante Passone</strong></li>
+                    <li><strong>Matias Martinez</strong></li>
+                </ul>
+            </section>
+
+            <!-- Slide 2 (con verticales) — Tema -->
+            <section>
+
+                <!-- Slide 2.1 -->
+                <section>
+                    <h1>Simulacion de Monte carlo</h1>
+                    <p>Introducción general</p>
+                </section>
+
+                <!-- Slide 2.2 (vertical hacia abajo) -->
+                <section>
+                    <h2>¿Que es?</h2>
+                    <p>
+                        la Simulación de Montecarlo es una técnica matemática que se utiliza para estimar los posibles
+                        resultados de un evento incierto.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Historia</h2>
+                    <p>
+                        El Método de Montecarlo fue inventado por John von Neumann y Stanislaw Ulam durante la Segunda
+                        Guerra Mundial.
+                    </p>
+
+                    <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px;">
+                        <div style="text-align: center;">
+                            <img src="img/Neumann.png" alt="John von Neumann" style="width: 160px; border-radius: 8px;">
+                            <p>John von Neumann</p>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <img src="img/Ulam.jpg" alt="Stanislaw Ulam" style="width: 160px; border-radius: 8px;">
+                            <p>Stanislaw Ulam</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section>
+                    <p>
+                        Debe su nombre a una conocida ciudad casino, llamada Mónaco, ya que el elemento de azar es
+                        fundamental en el planteamiento del modelo, similar a los juegos del casino.
+                    </p>
+
+                    <div style="display: flex; justify-content: center; margin-top: 25px;">
+                        <div style="text-align: center;">
+                            <img src="img/casino.jpg" alt="Casino de Montecarlo"
+                                style="width: 320px; border-radius: 10px;">
+                            <p style="margin-top: 10px;">Casino de Montecarlo</p>
+                        </div>
+                    </div>
+                </section>
+
+            </section>
+
+            <section>
+                <h2>Aplicaciones</h2>
+
+                <ul>
+                    <li><strong>Finanzas:</strong> evaluar riesgos y estimar ganancias o pérdidas.</li>
+                    <li><strong>Ingeniería:</strong> optimizar procesos y medir confiabilidad de sistemas.</li>
+                    <li><strong>Ciencias / Naturaleza:</strong> simular fenómenos físicos, climáticos o biológicos.</li>
+                    <li><strong>Computación / Juegos / IA:</strong> estrategias, simulaciones y comportamientos
+                        aleatorios.</li>
+                </ul>
+            </section>
+
+            <section>
+
+                <!-- SLIDE PRINCIPAL -->
+                <section>
+                    <h4>Conceptos Matemáticos y Estadísticos</h4>
+
+                    <h5>Variable Aleatoria</h5>
+                    <p>
+                        Es aquella cuyo valor depende del azar.
+                    </p>
+
+                    <h5>Distribución de Probabilidad</h5>
+                    <p>
+                        describen cómo se reparten o comportan los valores de una
+                        variable aleatoria.
+                    </p>
+                </section>
+
+                <!-- SLIDE HACIA ABAJO -->
+                <section>
+                    <h4>Tipos de Distribuciones</h4>
+
+                    <h5>Distribución Normal</h5>
+                    <p>
+                        Tiene forma de “campana”.<br>
+                        La mayoría de los valores se concentran cerca del promedio.<br>
+                        Los valores extremos son menos probables.
+                    </p>
+
+                    <div style="display: flex; justify-content: center; margin: 15px 0;">
+                        <img src="img/normal.png" alt="Distribución Normal" style="width: 300px; border-radius: 8px;">
+                    </div>
+
+                </section>
+
+                <section>
+                    <h5 style="margin-top: 30px;">Distribución Uniforme</h5>
+                    <p>
+                        Todos los valores tienen la misma probabilidad.<br>
+                        No hay preferencia por ningún número en particular.<br>
+                        Se usa cuando no se tiene información adicional o cuando todos los resultados son igual de
+                        posibles.
+                    </p>
+
+                    <div style="display: flex; justify-content: center; margin-top: 15px;">
+                        <img src="img/uniforme.png" alt="Distribución Uniforme"
+                            style="width: 300px; border-radius: 8px;">
+                    </div>
+                </section>
+
+                <section>
+
+                    <h5>Promedio</h5>
+                    <p>
+                        Representa el resultado esperado de la simulación.
+                    </p>
+
+                    <h5>Desviación Estándar</h5>
+                    <p>
+                        Representa el riesgo o la incertidumbre asociada a ese resultado.
+                    </p>
+                </section>
+                <section>
+                    <h4>Ley de los Grandes Números</h4>
+
+                    <p>
+                        Cuando repetís un experimento aleatorio muchas veces,
+                        el promedio de los resultados se acerca cada vez más al valor real esperado.
+                    </p>
+
+                    <div style="display: flex; justify-content: center; margin-top: 20px;">
+                        <img src="img/leyde.png" alt="Ley de los Grandes Números"
+                            style="width: 420px; border-radius: 10px;">
+                    </div>
+                </section>
+
+
+            </section>
+            <section>
+                <h4>Pasos para realizar una simulación de Monte Carlo</h4>
+
+                <ul>
+                    <li><strong>1. Definir el problema:</strong> identificar las variables que influyen en el resultado.
+                    </li>
+                    <li><strong>2. Definir los datos de entrada:</strong> establecer los parámetros de cada variable.
+                    </li>
+                    <li><strong>3. Generar valores aleatorios:</strong> producir valores posibles para cada variable.
+                    </li>
+                    <li><strong>4. Ejecutar múltiples simulaciones:</strong> repetir el proceso para observar diferentes
+                        resultados.</li>
+                    <li><strong>5. Analizar los resultados:</strong> evaluar el alcance y la probabilidad de los
+                        distintos escenarios.</li>
+                </ul>
+            </section>
+
+            <section>
+                <section>
+                    <h4>Conceptos de Rigor Estadístico</h4>
+
+                    <h5>Rigor</h5>
+                    <ul>
+                        <li>Definir bien las variables y distribuciones.</li>
+                        <li>Hacer suficientes iteraciones.</li>
+                        <li>Analizar correctamente promedio, desviación y probabilidades.</li>
+                    </ul>
+
+                    <h5>Muestra</h5>
+                    <p>
+                        Conjunto de datos extraído de la población que usamos para hacer estimaciones.
+                        Nos da suficiente información para calcular valores esperados y riesgos.
+                    </p>
+                </section>
+
+                <!-- SLIDE 2: Confianza + Error -->
+                <section>
+
+                    <h5>Confianza</h5>
+                    <p>
+                        Indica qué tan seguros estamos de que nuestra estimación está cerca del valor real.
+                    </p>
+
+                    <h5>Error</h5>
+                    <p>
+                        Mide la diferencia entre la estimación y el valor real.
+                        Puede reducirse aumentando:
+                    </p>
+
+                    <ul>
+                        <li>El tamaño de la muestra.</li>
+                        <li>La precisión del modelo y la correcta definición de distribuciones.</li>
+                    </ul>
+                </section>
+            </section>
+            <!-- SLIDE PRINCIPAL: Ejemplo -->
+            <section>
+                <section>
+                    <h4>Ejemplo 1</h4>
+                    <p>
+                        Veamos un caso simple para entender cómo se aplican los conceptos de rigor,
+                        muestra, confianza y error en un escenario real.
+                    </p>
+                </section>
+
+                <!-- SUB-SLIDE HACIA ABAJO -->
+                <section>
+                    <h4>Ejemplo: Lanzamiento de una moneda</h4>
+                    <p>
+                        Si lanzamos una moneda justa muchas veces, la proporción de caras tiende a acercarse al 50%.
+                        Esto ilustra la Ley de los Grandes Números.
+                    </p>
+
+                    <ul>
+                        <li><strong>Muestra:</strong> cantidad de lanzamientos.</li>
+                        <li><strong>Confianza:</strong> qué tan seguros estamos de que el resultado se acerca al 50%.
+                        </li>
+                        <li><strong>Error:</strong> diferencia entre la proporción observada y el 50% real.</li>
+                    </ul>
+                </section>
+            </section>
+            <!-- SLIDE PRINCIPAL: Ejemplo -->
+            <section>
+                <section>
+                    <h4>Ejemplo 2</h4>
+                    <p>
+
+                    </p>
+                </section>
+
+                <!-- SUB-SLIDE HACIA ABAJO -->
+                <section>
+
+                </section>
+            </section>
+            <section>
+                <!-- SLIDE PRINCIPAL: Conclusiones -->
+                <section>
+                    <h4>Conclusiones</h4>
+                    <p>
+                        La simulación de Monte Carlo permite entender mejor la variabilidad,
+                        el riesgo y la incertidumbre en problemas complejos, siempre que se aplique
+                        con rigor estadístico.
+                    </p>
+                </section>
+
+                <!-- SUB-SLIDE VERT: Ventajas -->
+                <section>
+                    <h4>Ventajas</h4>
+
+                    <ul>
+                        <li>Permite modelar problemas con mucha incertidumbre.</li>
+                        <li>Ofrece una visión probabilística en lugar de un único resultado.</li>
+                        <li>Admite muchas variables y distribuciones diferentes.</li>
+                        <li>Aumenta la precisión con más iteraciones.</li>
+                    </ul>
+                </section>
+
+                <!-- SUB-SLIDE VERT: Desventajas -->
+                <section>
+                    <h4>Desventajas</h4>
+
+                    <ul>
+                        <li>Requiere una buena definición de distribuciones y parámetros.</li>
+                        <li>Puede ser computacionalmente costoso con muchas simulaciones.</li>
+                        <li>Los resultados dependen fuertemente de la calidad de los datos de entrada.</li>
+                        <li>No elimina la incertidumbre, solo la cuantifica.</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <h4>Fuentes</h4>
+
+                <ul>
+                    <li>“Monte Carlo Simulation” – Investopedia.</li>
+                    <li>“Law of Large Numbers” – Khan Academy.</li>
+                    <li>“Probability Distributions” – StatLect.</li>
+                    <li>“Introduction to Simulation” – MIT OpenCourseWare.</li>
+                    <li>Apuntes propios de la materia / clase.</li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true
+        });
+    </script>
+</body>
+
+</html>
