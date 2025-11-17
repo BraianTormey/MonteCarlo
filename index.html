@@ -8,6 +8,12 @@
     <!-- Reveal.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/night.css" id="theme">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+
 
     <style>
         /* Tipografías y espaciado mejorado */
@@ -17,49 +23,53 @@
 
         .reveal h1 {
             text-transform: none;
-            font-size: 2em;
+            font-size: 2.2em;
             font-weight: 600;
-            margin-bottom: 0.5em;
+            margin-bottom: 0.6em;
             letter-spacing: -0.02em;
+            text-align: center;
         }
 
         .reveal h2 {
             text-transform: none;
-            font-size: 1.6em;
+            font-size: 1.7em;
             font-weight: 600;
-            margin-bottom: 0.4em;
+            margin-bottom: 0.5em;
             letter-spacing: -0.01em;
+            text-align: center;
         }
 
         .reveal h3 {
             text-transform: none;
-            font-size: 1.3em;
+            font-size: 1.4em;
             font-weight: 500;
-            margin-bottom: 0.4em;
+            margin-bottom: 0.5em;
+            text-align: center;
         }
 
         .reveal h4 {
             text-transform: none;
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: 500;
-            margin-bottom: 0.4em;
+            margin-bottom: 0.5em;
             color: #e0e0e0;
+            text-align: center;
         }
 
         .reveal h5 {
             text-transform: none;
-            font-size: 1em;
+            font-size: 1.05em;
             font-weight: 500;
-            margin-top: 0.6em;
-            margin-bottom: 0.3em;
+            margin-top: 0.8em;
+            margin-bottom: 0.4em;
             color: #d0d0d0;
         }
 
         .reveal p {
-            font-size: 0.9em;
-            line-height: 1.5;
-            margin-bottom: 0.6em;
-            max-width: 95%;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 0.7em;
+            max-width: 90%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -72,9 +82,9 @@
         }
 
         .reveal ul li {
-            margin-bottom: 0.5em;
-            font-size: 0.9em;
-            line-height: 1.5;
+            margin-bottom: 0.6em;
+            font-size: 0.95em;
+            line-height: 1.6;
             padding-left: 1.2em;
             position: relative;
         }
@@ -101,6 +111,72 @@
             text-align: center;
         }
 
+        /* Estilos para tablas */
+        .reveal table {
+            margin: 0.8em auto;
+            font-size: 0.75em;
+            border-collapse: collapse;
+            width: auto;
+            max-width: 95%;
+        }
+
+        .reveal table th {
+            background-color: rgba(59, 130, 246, 0.2);
+            font-weight: 600;
+            padding: 8px 6px;
+            border-bottom: 2px solid #4a9eff;
+            font-size: 0.9em;
+        }
+
+        .reveal table td {
+            padding: 6px 5px;
+            font-size: 0.9em;
+        }
+
+        .reveal table tfoot th {
+            background-color: rgba(59, 130, 246, 0.15);
+            border-top: 2px solid #4a9eff;
+        }
+
+        /* Estilos para inputs y botones */
+        .reveal input[type="number"],
+        .reveal input[type="text"] {
+            padding: 8px 12px;
+            font-size: 0.9em;
+            border-radius: 6px;
+            border: 1px solid #4a9eff;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            width: 120px;
+        }
+
+        .reveal button {
+            padding: 8px 16px;
+            font-size: 0.9em;
+            border-radius: 6px;
+            border: none;
+            background-color: #4a9eff;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .reveal button:hover {
+            background-color: #3b82f6;
+        }
+
+        .reveal label {
+            font-size: 0.95em;
+            margin-right: 10px;
+        }
+
+        /* Mejoras para canvas/gráficos */
+        .reveal canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* Espaciado mejorado para imágenes */
         .reveal img {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -115,7 +191,7 @@
         }
         
         .reveal section img[src*="casino"] {
-            width: 280px !important;
+            width: 500px !important;
         }
         
         .reveal section img[src*="normal"],
@@ -130,6 +206,35 @@
         /* Ajustes de contenedores flex */
         .reveal section [style*="display: flex"] {
             margin-top: 0.8em;
+        }
+
+        /* Estilos para fragments de código */
+        .reveal pre code {
+            font-size: 0.75em;
+            line-height: 1.4;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .reveal pre code .fragment {
+            display: block;
+        }
+
+        .reveal .fragment.highlight-current-blue {
+            opacity: 0.4;
+            transition: all 0.3s ease;
+        }
+
+        .reveal .fragment.highlight-current-blue.current-fragment {
+            opacity: 1;
+            background-color: rgba(59, 130, 246, 0.25);
+            padding: 4px 6px;
+            border-radius: 4px;
+            border-left: 3px solid #3B82F6;
+        }
+
+        .reveal .fragment.highlight-current-blue.visible {
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -160,9 +265,9 @@
 
                 <!-- Slide 2.2 (vertical hacia abajo) -->
                 <section>
-                    <h2>¿Que es?</h2>
+                    <h2>¿Qué es?</h2>
                     <p>
-                        la Simulación de Montecarlo es una técnica matemática que se utiliza para estimar los posibles
+                        La Simulación de Montecarlo es una técnica matemática que se utiliza para estimar los posibles
                         resultados de un evento incierto.
                     </p>
                 </section>
@@ -198,7 +303,6 @@
                         <div style="text-align: center;">
                             <img src="img/casino.jpg" alt="Casino de Montecarlo"
                                 style="border-radius: 10px;">
-                            <p style="font-size: 0.85em; margin-top: 8px;">Casino de Montecarlo</p>
                         </div>
                     </div>
                 </section>
@@ -279,6 +383,42 @@
                         Representa el riesgo o la incertidumbre asociada a ese resultado.
                     </p>
                 </section>
+                    <section>
+                        <h4>Conceptos de Rigor Estadístico</h4>
+    
+                        <h5>Rigor</h5>
+                        <ul>
+                            <li>Definir bien las variables y distribuciones.</li>
+                            <li>Hacer suficientes iteraciones.</li>
+                            <li>Analizar correctamente promedio, desviación y probabilidades.</li>
+                        </ul>
+    
+                        <h5>Muestra</h5>
+                        <p>
+                            Conjunto de datos extraído de la población que usamos para hacer estimaciones.
+                            Nos da suficiente información para calcular valores esperados y riesgos.
+                        </p>
+                    </section>
+    
+                    <!-- SLIDE 2: Confianza + Error -->
+                    <section>
+    
+                        <h5>Confianza</h5>
+                        <p>
+                            Indica qué tan seguros estamos de que nuestra estimación está cerca del valor real.
+                        </p>
+    
+                        <h5>Error</h5>
+                        <p>
+                            Mide la diferencia entre la estimación y el valor real.
+                            Puede reducirse aumentando:
+                        </p>
+    
+                        <ul>
+                            <li>El tamaño de la muestra.</li>
+                            <li>La precisión del modelo y la correcta definición de distribuciones.</li>
+                        </ul>
+                    </section>
                 <section>
                     <h4>Ley de los Grandes Números</h4>
 
@@ -296,99 +436,350 @@
 
             </section>
             <section>
-                <h4>Pasos para realizar una simulación de Monte Carlo</h4>
+                <h6>Pasos para realizar una simulación de Monte Carlo</h6>
 
-                <ul>
-                    <li><strong>1. Definir el problema:</strong> identificar las variables que influyen en el resultado.
-                    </li>
-                    <li><strong>2. Definir los datos de entrada:</strong> establecer los parámetros de cada variable.
-                    </li>
-                    <li><strong>3. Generar valores aleatorios:</strong> producir valores posibles para cada variable.
-                    </li>
-                    <li><strong>4. Ejecutar múltiples simulaciones:</strong> repetir el proceso para observar diferentes
-                        resultados.</li>
-                    <li><strong>5. Analizar los resultados:</strong> evaluar el alcance y la probabilidad de los
-                        distintos escenarios.</li>
+                <ul style="font-size: 0.8em;">
+                    <li><strong>1. Definir el problema:</strong> identificar las variables que influyen en el resultado.</li>
+                    <li><strong>2. Definir los datos de entrada:</strong> establecer los parámetros de cada variable.</li>
+                    <li><strong>3. Generar valores aleatorios:</strong> producir valores posibles para cada variable.</li>
+                    <li><strong>4. Ejecutar múltiples simulaciones:</strong> repetir el proceso para observar diferentes resultados.</li>
+                    <li><strong>5. Analizar los resultados:</strong> evaluar el alcance y la probabilidad de los distintos escenarios.</li>
                 </ul>
             </section>
 
-            <section>
-                <section>
-                    <h4>Conceptos de Rigor Estadístico</h4>
-
-                    <h5>Rigor</h5>
-                    <ul>
-                        <li>Definir bien las variables y distribuciones.</li>
-                        <li>Hacer suficientes iteraciones.</li>
-                        <li>Analizar correctamente promedio, desviación y probabilidades.</li>
-                    </ul>
-
-                    <h5>Muestra</h5>
-                    <p>
-                        Conjunto de datos extraído de la población que usamos para hacer estimaciones.
-                        Nos da suficiente información para calcular valores esperados y riesgos.
-                    </p>
-                </section>
-
-                <!-- SLIDE 2: Confianza + Error -->
-                <section>
-
-                    <h5>Confianza</h5>
-                    <p>
-                        Indica qué tan seguros estamos de que nuestra estimación está cerca del valor real.
-                    </p>
-
-                    <h5>Error</h5>
-                    <p>
-                        Mide la diferencia entre la estimación y el valor real.
-                        Puede reducirse aumentando:
-                    </p>
-
-                    <ul>
-                        <li>El tamaño de la muestra.</li>
-                        <li>La precisión del modelo y la correcta definición de distribuciones.</li>
-                    </ul>
-                </section>
-            </section>
+           
             <!-- SLIDE PRINCIPAL: Ejemplo -->
             <section>
                 <section>
                     <h4>Ejemplo 1</h4>
-                    <p>
-                        Veamos un caso simple para entender cómo se aplican los conceptos de rigor,
-                        muestra, confianza y error en un escenario real.
-                    </p>
+                
+                    <div style="display: flex; justify-content: center; margin-top: 20px;">
+                        <img src="img/moneda.jpg" alt="Moneda" style="width: 500px; border-radius: 12px;">
+                    </div>
                 </section>
+                
 
                 <!-- SUB-SLIDE HACIA ABAJO -->
-                <section>
-                    <h4>Ejemplo: Lanzamiento de una moneda</h4>
-                    <p>
-                        Si lanzamos una moneda justa muchas veces, la proporción de caras tiende a acercarse al 50%.
-                        Esto ilustra la Ley de los Grandes Números.
-                    </p>
 
-                    <ul>
-                        <li><strong>Muestra:</strong> cantidad de lanzamientos.</li>
-                        <li><strong>Confianza:</strong> qué tan seguros estamos de que el resultado se acerca al 50%.
-                        </li>
-                        <li><strong>Error:</strong> diferencia entre la proporción observada y el 50% real.</li>
-                    </ul>
+                <section>
+                    <h3>Simulación de Monte Carlo</h3>
+                    <p style="font-size: 0.85em; margin-bottom: 10px;">Este gráfico muestra cómo la proporción acumulada de caras se estabiliza alrededor del 50%,.</p>
+                
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 10px 0;">
+                        <label for="nLanzamientos" style="font-size: 0.9em;"><strong>Lanzamientos:</strong></label>
+                        <input id="nLanzamientos" type="number" value="100" min="10" max="100000" style="width: 100px;">
+                        <button onclick="simularMoneda()">Simular</button>
+                    </div>
+                
+                    <div style="width: 85%; max-width: 700px; margin: 0 auto;">
+                        <canvas id="graficoMoneda" width="700" height="350"></canvas>
+                    </div>
+                
+                    <script>
+                        let chartMoneda = null;
+                
+                        function simularMoneda() {
+                            const N = parseInt(document.getElementById("nLanzamientos").value);
+                
+                            let caras = 0;
+                            let proporciones = [];
+                            let x = [];
+                
+                            for (let i = 1; i <= N; i++) {
+                                const resultado = Math.random() < 0.5; 
+                                if (resultado) caras++;
+                                proporciones.push(caras / i);
+                                x.push(i);
+                            }
+                
+                            // Si el grafico ya existe, destruirlo para actualizarlo
+                            if (chartMoneda) {
+                                chartMoneda.destroy();
+                            }
+                
+                            const ctx = document.getElementById("graficoMoneda").getContext("2d");
+                
+                            chartMoneda = new Chart(ctx, {
+                                type: "line",
+                                data: {
+                                    labels: x,
+                                    datasets: [
+                                        {
+                                            label: "Proporción acumulada de caras",
+                                            data: proporciones,
+                                            borderWidth: 2,
+                                        }
+                                    ]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: true,
+                                    aspectRatio: 2,
+                                    scales: {
+                                        y: {
+                                            min: 0,
+                                            max: 1
+                                        }
+                                    },
+                                    plugins: {
+                                        legend: {
+                                            display: true,
+                                            labels: {
+                                                font: {
+                                                    size: 11
+                                                }
+                                            }
+                                        },
+                                        annotation: {
+                                            annotations: {
+                                                linea50: {
+                                                    type: 'line',
+                                                    yMin: 0.5,
+                                                    yMax: 0.5,
+                                                    borderWidth: 1,
+                                                    borderDash: [5,5]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    </script>
                 </section>
+                
             </section>
             <!-- SLIDE PRINCIPAL: Ejemplo -->
             <section>
                 <section>
                     <h4>Ejemplo 2</h4>
-                    <p>
-
-                    </p>
+                
+                    <div style="display: flex; justify-content: center; margin-top: 20px;">
+                        <img src="img/dados.jpg" alt="Dados" style="width: 300px; border-radius: 12px;">
+                    </div>
                 </section>
+                
 
-                <!-- SUB-SLIDE HACIA ABAJO -->
                 <section>
-
+                
+                    <p style="font-size: 0.9em; margin-bottom: 0.5em;">Queremos estimar el valor esperado de un juego donde:</p>
+                
+                    <ul style="font-size: 0.9em; margin-bottom: 0.5em;">
+                        <li>Se tiran dos dados.</li>
+                        <li>Si salen dobles → ganás <strong>100 × (producto)</strong>.</li>
+                        <li>Si NO salen dobles → perdés <strong>200 dólares</strong>.</li>
+                    </ul>
+                
+                    <h5 style="margin-top: 5px; margin-bottom: 0.3em;">Pregunta inicial</h5>
+                    <p style="font-size: 0.85em; margin-bottom: 0.5em;"><em>¿Es un juego conveniente o desfavorable a largo plazo?</em></p>
+                
+                    <p style="font-size: 0.8em;">Para responderlo vamos a verlo analíticamente y luego con una <strong>Simulación Monte Carlo</strong>.</p>
                 </section>
+                <section>
+                    <h3>Probabilidades y Valor Esperado del Juego</h3>
+                
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Evento</th>
+                                <th>Probabilidad</th>
+                                <th>Ganancia ($)</th>
+                                <th>Contribución al Valor Esperado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1-1</td>
+                                <td>1/36 = 0.0278</td>
+                                <td>100</td>
+                                <td>+2.78</td>
+                            </tr>
+                            <tr>
+                                <td>2-2</td>
+                                <td>1/36 = 0.0278</td>
+                                <td>400</td>
+                                <td>+11.11</td>
+                            </tr>
+                            <tr>
+                                <td>3-3</td>
+                                <td>1/36 = 0.0278</td>
+                                <td>900</td>
+                                <td>+25.00</td>
+                            </tr>
+                            <tr>
+                                <td>4-4</td>
+                                <td>1/36 = 0.0278</td>
+                                <td>1600</td>
+                                <td>+44.44</td>
+                            </tr>
+                            <tr>
+                                <td>5-5</td>
+                                <td>1/36 = 0.0278</td>
+                                <td>2500</td>
+                                <td>+69.44</td>
+                            </tr>
+                            <tr>
+                                <td>6-6</td>
+                                <td>1/36 = 0.0278</td>
+                                <td>3600</td>
+                                <td>+100.00</td>
+                            </tr>
+                            <tr>
+                                <td>No doble (30/36)</td>
+                                <td>0.8333</td>
+                                <td>−200</td>
+                                <td>−166.67</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="3">Valor Esperado Total</th>
+                                <th>≈ 86.11</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </section>
+                <section>
+                    <h3>Explicación Paso a Paso</h3>
+                
+                    <pre><code class="language-python">
+<span class="fragment highlight-current-blue">
+import random
+import numpy as np
+import matplotlib.pyplot as plt</span>
+
+<span class="fragment highlight-current-blue">
+def jugar():
+    d1 = random.randint(1, 6)
+    d2 = random.randint(1, 6)
+
+    if d1 == d2:
+        return 100 * (d1 * d2)  # Dobles → gana: 100 × (producto)
+    else:
+        return -200  # No dobles → pierde 200</span>
+
+<span class="fragment highlight-current-blue"># Pedir al usuario el número de partidas
+N = int(input("¿Cuántas partidas querés simular? "))</span>
+
+<span class="fragment highlight-current-blue"># Simular el juego N veces
+resultados = [jugar() for _ in range(N)]
+valor_esperado = np.mean(resultados)
+
+print("\n---------------------------------------------")
+print(f"Simulación con {N:,} partidas")
+print(f"Valor esperado aproximado: {valor_esperado:.2f} dólares")
+print("---------------------------------------------\n")</span>
+
+<span class="fragment highlight-current-blue"># Valores posibles del juego
+valores_posibles = [-200, 100, 400, 900, 1600, 2500, 3600]
+
+# Contar frecuencias manualmente
+frecuencias = [resultados.count(v) for v in valores_posibles]</span>
+
+<span class="fragment highlight-current-blue"># Crear gráfico de barras
+plt.figure(figsize=(9,5))
+bars = plt.bar(valores_posibles, frecuencias, width=150, color='#3B82F6', edgecolor='black')
+
+# Etiquetas de texto sobre cada barra
+for bar, freq in zip(bars, frecuencias):
+    plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + N*0.005,
+             str(freq), ha='center', va='bottom', fontsize=9)
+
+# Personalización del gráfico
+plt.title(f"Distribución de Ganancias/Pérdidas (N = {N:,})", fontsize=14)
+plt.xlabel("Ganancia/Pérdida por partida ($)", fontsize=12)
+plt.ylabel("Frecuencia", fontsize=12)
+plt.xticks(valores_posibles)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.tight_layout()
+plt.show()</span>
+                    </code></pre>
+                </section>
+                
+                
+                <section>
+                    <h3>Simulación Monte Carlo Interactiva</h3>
+                
+                    <p style="margin-bottom: 15px;">
+                        Elegí cuántas partidas querés simular:
+                    </p>
+                
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <input 
+                            id="inputN" 
+                            type="number" 
+                            value="1000" 
+                            min="10" 
+                            step="100">
+                        
+                        <button onclick="simular()">
+                            Simular
+                        </button>
+                    </div>
+                
+                    <p id="valorEsperado" style="margin: 15px 0; font-size: 1.05em; font-weight: bold; text-align: center; color: #6bb6ff;"></p>
+                
+                    <div style="width: 85%; max-width: 600px; margin: 0 auto;">
+                        <canvas id="grafico"></canvas>
+                    </div>
+                
+                    <script>
+                        const valoresPosibles = [-200, 100, 400, 900, 1600, 2500, 3600];
+                
+                        function jugar() {
+                            let d1 = Math.floor(Math.random() * 6) + 1;
+                            let d2 = Math.floor(Math.random() * 6) + 1;
+                
+                            return d1 === d2 ? 100 * (d1 * d2) : -200;
+                        }
+                
+                        let ctx = null;
+                        let chart = null;
+                
+                        function simular() {
+                            const N = parseInt(document.getElementById("inputN").value);
+                
+                            let resultados = [];
+                            for (let i = 0; i < N; i++) resultados.push(jugar());
+                
+                            let frecuencias = valoresPosibles.map(v => 
+                                resultados.filter(x => x === v).length
+                            );
+                
+                            let esperado = resultados.reduce((a, b) => a + b, 0) / N;
+                            document.getElementById("valorEsperado").textContent =
+                                `Valor esperado aproximado: ${esperado.toFixed(2)} USD`;
+                
+                            if (!ctx) ctx = document.getElementById("grafico").getContext("2d");
+                
+                            if (chart) chart.destroy();
+                
+                            chart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: valoresPosibles,
+                                    datasets: [{
+                                        data: frecuencias,
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: { legend: { display: false }},
+                                    scales: {
+                                        y: { beginAtZero: true }
+                                    }
+                                }
+                            });
+                        }
+                
+                        // Simular al inicio
+                        setTimeout(simular, 400);
+                    </script>
+                
+                </section>
+                
             </section>
             <section>
                 <!-- SLIDE PRINCIPAL: Conclusiones -->
@@ -425,17 +816,21 @@
                     </ul>
                 </section>
             </section>
-            <section>
-                <h4>Fuentes</h4>
-
-                <ul>
-                    <li>“Monte Carlo Simulation” – Investopedia.</li>
-                    <li>“Law of Large Numbers” – Khan Academy.</li>
-                    <li>“Probability Distributions” – StatLect.</li>
-                    <li>“Introduction to Simulation” – MIT OpenCourseWare.</li>
-                    <li>Apuntes propios de la materia / clase.</li>
+            <section data-background-image="img/fuente.jpg" data-background-size="cover" data-background-opacity="0.25">
+                <h4 style="text-shadow: 0 0 8px rgba(0,0,0,0.7); color: white;">
+                    Fuentes
+                </h4>
+            
+                <ul style="color: white; font-size: 0.7em; text-shadow: 0 0 8px rgba(0,0,0,0.8);">
+                    <li>https://www.ibm.com/es-es/think/topics/monte-carlo-simulation
+                        – IBM</li>
+                    <li>https://www.investopedia.com/terms/m/montecarlosimulation.asp – Investopedia.</li>
+                    <li>https://asana.com/es/resources/montecarlo-method – Asana.</li>
+                    <li>https://www.questionpro.com/blog/es/simulacion-de-monte-carlo/ – QuestionPro.</li>
+                    <li>https://youtu.be/PH6q9D8iy2E?si=wjXznJvcTsLFF8Sg – dataminingincae.</li>
                 </ul>
             </section>
+            
 
         </div>
     </div>
@@ -449,7 +844,20 @@
             slideNumber: true,
             transition: 'slide',
             transitionSpeed: 'default',
-            backgroundTransition: 'fade'
+            backgroundTransition: 'fade',
+            fragments: true
+        }).then(() => {
+            // Highlight code after reveal.js is ready
+            hljs.highlightAll();
+        });
+        
+        // Re-highlight code when fragments change
+        Reveal.addEventListener('fragmentshown', function(event) {
+            hljs.highlightAll();
+        });
+        
+        Reveal.addEventListener('fragmenthidden', function(event) {
+            hljs.highlightAll();
         });
     </script>
 </body>
