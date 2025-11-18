@@ -785,7 +785,7 @@
                         <input 
                             id="inputN" 
                             type="number" 
-                            value="1000" 
+                            placeholder="Número de partidas" 
                             min="10" 
                             step="100">
                         
@@ -819,6 +819,11 @@
                 
                         function simular() {
                             const N = parseInt(document.getElementById("inputN").value);
+                            
+                            if (!N || N < 10) {
+                                alert("Por favor, ingresá un número de partidas válido (mínimo 10).");
+                                return;
+                            }
                 
                             let resultados = [];
                             for (let i = 0; i < N; i++) resultados.push(jugar());
@@ -866,9 +871,6 @@
                                 }
                             });
                         }
-                
-                        // Simular al inicio
-                        setTimeout(simular, 400);
                     </script>
                 
                 </section>
@@ -877,7 +879,7 @@
             <section>
                 <h4>Conclusiones</h4>
                 <p style="font-size: 0.85em; margin: 15px 0;">
-                    Una de las conclusiones que llegamos es que con este método podemos usar repeticiones aleatorias 
+                    En conclusión,con este método podemos usar repeticiones aleatorias 
                     para aproximar algo que analíticamente puede ser difícil de resolver.
                 </p>
                 <p style="font-size: 0.85em; margin: 15px 0;">
