@@ -235,11 +235,23 @@ Mostrar simulación interactiva
 
 **8.1: Conclusiones generales**
 
-"Una de las conclusiones que llegamos es que con este método podemos usar repeticiones aleatorias para aproximar algo que analíticamente puede ser difícil de resolver."
-
 "La simulación de Monte Carlo es una herramienta poderosa que nos permite estimar resultados en situaciones de incertidumbre mediante la repetición de experimentos aleatorios."
 
+"Como vimos en los ejemplos, a mayor número de simulaciones, más precisos serán nuestros resultados, demostrando la Ley de los Grandes Números en acción."
+
 "Sin embargo, es fundamental aplicarla con rigor estadístico para obtener conclusiones confiables."
+
+**8.2: Ventajas**
+
+"Las ventajas incluyen:"
+
+Leer cada ventaja
+
+**8.3: Desventajas**
+
+"Pero también tiene sus limitaciones:"
+
+Leer cada desventaja
 
 **SLIDE 9: Fuentes (imágenes)**
 
