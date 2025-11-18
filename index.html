@@ -869,6 +869,36 @@
                     </ul>
                 </section>
             </section>
+            <section class="center">
+                <h2>Fuentes:</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 90%; margin: 30px auto;">
+                    <div style="text-align: center;">
+                        <img src="img/fuente_dolores.jpg" alt="Fuente de Dolores" style="width: 100%; max-width: 250px; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                        <p style="margin-top: 10px; font-size: 0.9em; font-weight: 500;">Dolores</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="img/fuente_castelli.jpg" alt="Fuente de Castelli" style="width: 100%; max-width: 250px; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                        <p style="margin-top: 10px; font-size: 0.9em; font-weight: 500;">Castelli</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="img/fuente_lezama.jpg" alt="Fuente de Lezama" style="width: 100%; max-width: 250px; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                        <p style="margin-top: 10px; font-size: 0.9em; font-weight: 500;">Lezama</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="img/fuente_pila.jpg" alt="Fuente de Pila" style="width: 100%; max-width: 250px; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                        <p style="margin-top: 10px; font-size: 0.9em; font-weight: 500;">Pila</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="img/fuente_maipu.jpg" alt="Fuente de Maipú" style="width: 100%; max-width: 250px; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                        <p style="margin-top: 10px; font-size: 0.9em; font-weight: 500;">Maipú</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="img/fuente_gralguido.jpg" alt="Fuente de Gral. Guido" style="width: 100%; max-width: 250px; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                        <p style="margin-top: 10px; font-size: 0.9em; font-weight: 500;">Gral. Guido</p>
+                    </div>
+                </div>
+            </section>
             <section data-background-image="img/fuente.jpg" data-background-size="cover" data-background-opacity="0.25">
                 <h4 style="text-shadow: 0 0 8px rgba(0,0,0,0.7); color: white;">
                     Fuentes
@@ -929,6 +959,12 @@
             btnAudio = document.getElementById('btnAudio');
             overlayOscuro = document.getElementById('overlayOscuro');
             audioEpico = document.getElementById('audioEpico');
+            
+            // Ocultar botón si no estamos en la primera slide
+            const btnAudioContainer = document.getElementById('btnAudioContainer');
+            if (btnAudioContainer && (Reveal.getIndices().h !== 0 || Reveal.getIndices().v !== 0)) {
+                btnAudioContainer.style.display = 'none';
+            }
         });
         
         // Función para ocultar el overlay después de 44 segundos
@@ -980,8 +1016,15 @@
         
         // Control de audio épico y overlay cuando cambia de slide
         Reveal.addEventListener('slidechanged', function(event) {
+            const btnAudioContainer = document.getElementById('btnAudioContainer');
+            
             if (event.indexh !== 0 || event.indexv !== 0) {
                 // Si salimos de la primera slide
+                // Ocultar botón de audio
+                if (btnAudioContainer) {
+                    btnAudioContainer.style.display = 'none';
+                }
+                
                 if (audioIntro && !audioIntro.paused) {
                     audioIntro.pause();
                     if (btnAudio) btnAudio.innerHTML = '▶';
@@ -1004,6 +1047,11 @@
                 }
             } else if (event.indexh === 0 && event.indexv === 0) {
                 // Si volvemos a la primera slide
+                // Mostrar botón de audio
+                if (btnAudioContainer) {
+                    btnAudioContainer.style.display = 'block';
+                }
+                
                 if (overlayOscuro) {
                     overlayOscuro.style.display = 'block';
                     overlayOscuro.style.opacity = '1';
