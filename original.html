@@ -109,7 +109,6 @@
 
         .reveal section.center {
             text-align: center;
-            position: relative;
         }
 
         /* Estilos para tablas */
@@ -245,23 +244,8 @@
         <div class="slides">
 
             <!-- Slide 1 — Presentación del equipo -->
-            <section class="center" data-audio="audio/intro.mp3">
-                <audio id="audioIntro">
-                    <source src="audio/intro.mp3" type="audio/mpeg">
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
-                
-                <div style="position: absolute; bottom: 10px; left: 10px; z-index: 1000;">
-                    <button id="btnAudio" onclick="toggleAudio()" style="padding: 2px 6px; font-size: 0.5em; border-radius: 3px; border: none; background-color: rgba(74, 158, 255, 0.7); color: #fff; cursor: pointer; font-weight: 500; transition: background-color 0.3s ease;">
-                        ▶
-                    </button>
-                </div>
-                
+            <section class="center">
                 <h1>Grupo 2</h1>
-                
-                <div style="display: flex; justify-content: center; margin: 20px 0;">
-                    <img src="gifs/ronda de monos.gif" alt="Ronda de monos" style="max-width: 300px; height: auto; border-radius: 10px;">
-                </div>
 
                 <ul>
                     <li><strong>Braian Tormey</strong></li>
@@ -877,41 +861,6 @@
         
         Reveal.addEventListener('fragmenthidden', function(event) {
             hljs.highlightAll();
-        });
-        
-        // Control de audio para la primera slide con botón
-        let audioIntro, btnAudio;
-        
-        Reveal.addEventListener('ready', function() {
-            audioIntro = document.getElementById('audioIntro');
-            btnAudio = document.getElementById('btnAudio');
-        });
-        
-        // Función global para el botón
-        window.toggleAudio = function() {
-            if (!audioIntro) audioIntro = document.getElementById('audioIntro');
-            if (!btnAudio) btnAudio = document.getElementById('btnAudio');
-            
-            if (audioIntro.paused) {
-                audioIntro.play().then(() => {
-                    btnAudio.innerHTML = '⏸';
-                }).catch(e => {
-                    console.log('Error al reproducir audio:', e);
-                });
-            } else {
-                audioIntro.pause();
-                btnAudio.innerHTML = '▶';
-            }
-        };
-        
-        // Pausar audio cuando se sale de la primera slide
-        Reveal.addEventListener('slidechanged', function(event) {
-            if (event.indexh !== 0 || event.indexv !== 0) {
-                if (audioIntro && !audioIntro.paused) {
-                    audioIntro.pause();
-                    if (btnAudio) btnAudio.innerHTML = '▶';
-                }
-            }
         });
     </script>
 </body>
