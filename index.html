@@ -238,6 +238,11 @@
             opacity: 0.6;
         }
         
+        /* Oscurecer imagen de fondo en slide de aplicaciones */
+        .reveal section[data-background-image="img/aplicacion.jpg"]::after {
+            opacity: 0.3 !important;
+        }
+        
         /* Overlay oscuro para primera slide */
         #overlayOscuro {
             position: fixed !important;
@@ -365,19 +370,16 @@
 
             </section>
 
-            <section data-background-image="img/aplicacion.jpg" data-background-size="cover" data-background-opacity="0.4" style="position: relative;">
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 0;"></div>
-                <div style="position: relative; z-index: 1;">
-                    <h2 style="text-shadow: 0 0 10px rgba(0,0,0,0.8); color: white;">Aplicaciones</h2>
+            <section data-background-image="img/aplicacion.jpg" data-background-size="cover" data-background-opacity="0.3">
+                <h2 style="text-shadow: 0 0 10px rgba(0,0,0,0.8); color: white;">Aplicaciones</h2>
 
-                    <ul style="text-shadow: 0 0 8px rgba(0,0,0,0.8);">
-                        <li style="color: white;"><strong>Finanzas:</strong> evaluar riesgos y estimar ganancias o pérdidas.</li>
-                        <li style="color: white;"><strong>Ingeniería:</strong> optimizar procesos y medir confiabilidad de sistemas.</li>
-                        <li style="color: white;"><strong>Ciencias / Naturaleza:</strong> simular fenómenos físicos, climáticos o biológicos.</li>
-                        <li style="color: white;"><strong>Computación / Juegos / IA:</strong> estrategias, simulaciones y comportamientos
-                            aleatorios.</li>
-                    </ul>
-                </div>
+                <ul style="text-shadow: 0 0 8px rgba(0,0,0,0.8);">
+                    <li style="color: white;"><strong>Finanzas:</strong> evaluar riesgos y estimar ganancias o pérdidas.</li>
+                    <li style="color: white;"><strong>Ingeniería:</strong> optimizar procesos y medir confiabilidad de sistemas.</li>
+                    <li style="color: white;"><strong>Ciencias / Naturaleza:</strong> simular fenómenos físicos, climáticos o biológicos.</li>
+                    <li style="color: white;"><strong>Computación / Juegos / IA:</strong> estrategias, simulaciones y comportamientos
+                        aleatorios.</li>
+                </ul>
             </section>
 
             <section>
