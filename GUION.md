@@ -137,9 +137,21 @@ Comparar con la simulación en pantalla
 
 "Noten cómo, con pocos lanzamientos, la proporción puede variar mucho, pero con más lanzamientos se estabiliza."
 
-"Como pueden ver, a medida que aumentamos el número de lanzamientos, la proporción se estabiliza alrededor del 50%."
+CONCEPTOS APLICADOS EN ESTE EJEMPLO:
 
-"Esto es la Ley de los Grandes Números en acción."
+"En este ejemplo aplicamos varios conceptos que vimos antes:"
+
+"Variable Aleatoria: el resultado de cada lanzamiento (cara o cruz) es una variable aleatoria, porque depende del azar."
+
+"Distribución Uniforme: cada resultado tiene exactamente 50% de probabilidad, es decir, una distribución uniforme."
+
+"Ley de los Grandes Números: como pueden ver, a medida que aumentamos el número de lanzamientos, la proporción se estabiliza alrededor del 50%. Esto es la Ley de los Grandes Números en acción."
+
+"Muestra: cada conjunto de lanzamientos que realizamos es una muestra que nos permite estimar la probabilidad real."
+
+"Promedio: la proporción acumulada que calculamos es el promedio de caras en nuestros lanzamientos."
+
+"Rigor Estadístico: para obtener resultados confiables, necesitamos hacer suficientes lanzamientos. Con pocos lanzamientos, el error puede ser grande, pero con más lanzamientos, el error se reduce."
 
 SLIDE 7: Ejemplo 2 - Juego de Dados
 
@@ -185,7 +197,15 @@ Mostrar la tabla con las probabilidades
 
 "Esto significa que, a largo plazo, el juego es conveniente para el jugador."
 
-"Aquí aplicamos el concepto de promedio/valor esperado que vimos antes."
+CONCEPTOS APLICADOS EN ESTA PARTE:
+
+"En esta tabla aplicamos varios conceptos:"
+
+"Variable Aleatoria: la ganancia o pérdida del juego es nuestra variable aleatoria, porque depende del resultado aleatorio de los dados."
+
+"Distribución de Probabilidad: esta tabla muestra la distribución de probabilidad completa del juego. Cada evento tiene su probabilidad asociada."
+
+"Promedio/Valor Esperado: el valor esperado de 86.11 dólares es el promedio que esperamos obtener a largo plazo. Este es el concepto de promedio que vimos antes."
 
 7.4: Código Python (opcional)
 
@@ -205,9 +225,21 @@ Acción: Mostrar simulación interactiva
 
 "Esto demuestra el poder de la Simulación de Montecarlo."
 
-"Aquí vemos en acción la Ley de los Grandes Números: más simulaciones = resultado más cercano al valor esperado real."
+CONCEPTOS APLICADOS EN LA SIMULACIÓN:
 
-"También aplicamos el concepto de muestra: cada conjunto de N partidas es una muestra que nos permite estimar el valor esperado."
+"En esta simulación interactiva aplicamos todos los conceptos que vimos:"
+
+"Ley de los Grandes Números: más simulaciones = resultado más cercano al valor esperado real. Esto es la Ley de los Grandes Números en acción."
+
+"Muestra: cada conjunto de N partidas es una muestra que nos permite estimar el valor esperado. A mayor tamaño de muestra, mejor nuestra estimación."
+
+"Promedio: el valor esperado que calculamos es el promedio de todas las partidas simuladas."
+
+"Rigor Estadístico: para obtener resultados confiables, necesitamos hacer suficientes simulaciones. Con pocas simulaciones, el error puede ser grande, pero con más simulaciones, el error se reduce."
+
+"Confianza: a mayor número de simulaciones, mayor confianza tenemos en que nuestro resultado está cerca del valor real esperado."
+
+"Error: el error es la diferencia entre nuestro resultado simulado y el valor esperado real (86.11). Este error se reduce aumentando el tamaño de la muestra, es decir, haciendo más simulaciones."
 
 SLIDE 8: Conclusiones
 
