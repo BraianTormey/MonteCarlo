@@ -279,6 +279,12 @@
         </button>
     </div>
     
+    <!-- Audio épico para slides 2 en adelante -->
+    <audio id="audioEpico" loop preload="auto">
+        <source src="audio/epica.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    
     <div class="reveal">
         <div class="slides">
 
@@ -303,7 +309,7 @@
 
                 <!-- Slide 2.1 -->
                 <section class="center">
-                    <h1>Simulacion de Montecarlo</h1>
+                    <h1>Simulación de Montecarlo</h1>
                     <p>Introducción general</p>
                 </section>
 
@@ -877,6 +883,14 @@
                     <li>https://youtu.be/PH6q9D8iy2E?si=wjXznJvcTsLFF8Sg – dataminingincae.</li>
                 </ul>
             </section>
+            <section data-background-color="#8B0000" class="center">
+                <h2 style="color: white; text-shadow: 0 0 10px rgba(0,0,0,0.8); margin-bottom: 30px;">
+                    Pregunta para reflexionar:
+                </h2>
+                <h1 style="color: white; text-shadow: 0 0 10px rgba(0,0,0,0.8);">
+                    ¿Qué estará haciendo J2?
+                </h1>
+            </section>
             
 
         </div>
@@ -908,12 +922,13 @@
         });
         
         // Control de audio para la primera slide con botón
-        let audioIntro, btnAudio, overlayOscuro, timeoutOverlay;
+        let audioIntro, btnAudio, overlayOscuro, timeoutOverlay, audioEpico;
         
         Reveal.addEventListener('ready', function() {
             audioIntro = document.getElementById('audioIntro');
             btnAudio = document.getElementById('btnAudio');
             overlayOscuro = document.getElementById('overlayOscuro');
+            audioEpico = document.getElementById('audioEpico');
         });
         
         // Función para ocultar el overlay después de 44 segundos
@@ -963,9 +978,10 @@
             }
         };
         
-        // Pausar audio cuando se sale de la primera slide
+        // Control de audio épico y overlay cuando cambia de slide
         Reveal.addEventListener('slidechanged', function(event) {
             if (event.indexh !== 0 || event.indexv !== 0) {
+                // Si salimos de la primera slide
                 if (audioIntro && !audioIntro.paused) {
                     audioIntro.pause();
                     if (btnAudio) btnAudio.innerHTML = '▶';
@@ -979,11 +995,22 @@
                 if (timeoutOverlay) {
                     clearTimeout(timeoutOverlay);
                 }
+                
+                // Reproducir música épica desde la slide 2 en adelante
+                if (event.indexh >= 1 && audioEpico) {
+                    audioEpico.play().catch(e => {
+                        console.log('Error al reproducir música épica:', e);
+                    });
+                }
             } else if (event.indexh === 0 && event.indexv === 0) {
-                // Si volvemos a la primera slide, mostrar overlay oscuro
+                // Si volvemos a la primera slide
                 if (overlayOscuro) {
                     overlayOscuro.style.display = 'block';
                     overlayOscuro.style.opacity = '1';
+                }
+                // Pausar música épica si estamos en la primera slide
+                if (audioEpico && !audioEpico.paused) {
+                    audioEpico.pause();
                 }
             }
         });
