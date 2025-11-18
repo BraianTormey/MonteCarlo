@@ -518,7 +518,7 @@
                 <!-- SUB-SLIDE HACIA ABAJO -->
 
                 <section>
-                    <h3>Simulación de Montecarlo interactiva</h3>
+                    <h3 style="font-size: 1.2em;">Simulación de Montecarlo interactiva</h3>
                     <p style="font-size: 0.85em; margin-bottom: 10px;">Este gráfico muestra cómo la proporción acumulada de caras se estabiliza alrededor del 50%,.</p>
                 
                     <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 10px 0;">
@@ -576,9 +576,19 @@
                                     maintainAspectRatio: true,
                                     aspectRatio: 2,
                                     scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Número de lanzamientos'
+                                            }
+                                        },
                                         y: {
                                             min: 0,
-                                            max: 1
+                                            max: 1,
+                                            title: {
+                                                display: true,
+                                                text: 'Proporción acumulada de caras'
+                                            }
                                         }
                                     },
                                     plugins: {
@@ -761,7 +771,7 @@
                 </section>
                 
                 <section>
-                    <h3>Simulación Montecarlo interactiva</h3>
+                    <h3 style="font-size: 1.2em;">Simulación Montecarlo interactiva</h3>
                 
                     <p style="margin-bottom: 15px;">
                         Elegí cuántas partidas querés simular:
@@ -835,7 +845,19 @@
                                     maintainAspectRatio: false,
                                     plugins: { legend: { display: false }},
                                     scales: {
-                                        y: { beginAtZero: true }
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Valor de ganancia/pérdida (USD)'
+                                            }
+                                        },
+                                        y: { 
+                                            beginAtZero: true,
+                                            title: {
+                                                display: true,
+                                                text: 'Frecuencia (cantidad de veces)'
+                                            }
+                                        }
                                     }
                                 }
                             });
