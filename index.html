@@ -642,60 +642,63 @@
                 <section>
                     <h3>Explicación Paso a Paso</h3>
                 
-                    <pre><code class="language-python">
-<span class="fragment highlight-current-blue">
-import random
-import numpy as np
-import matplotlib.pyplot as plt</span>
-
-<span class="fragment highlight-current-blue">
-def jugar():
-    d1 = random.randint(1, 6)
-    d2 = random.randint(1, 6)
-
-    if d1 == d2:
-        return 100 * (d1 * d2)  # Dobles → gana: 100 × (producto)
-    else:
-        return -200  # No dobles → pierde 200</span>
-
-<span class="fragment highlight-current-blue"># Pedir al usuario el número de partidas
-N = int(input("¿Cuántas partidas querés simular? "))</span>
-
-<span class="fragment highlight-current-blue"># Simular el juego N veces
-resultados = [jugar() for _ in range(N)]
-valor_esperado = np.mean(resultados)
-
-print("\n---------------------------------------------")
-print(f"Simulación con {N:,} partidas")
-print(f"Valor esperado aproximado: {valor_esperado:.2f} dólares")
-print("---------------------------------------------\n")</span>
-
-<span class="fragment highlight-current-blue"># Valores posibles del juego
-valores_posibles = [-200, 100, 400, 900, 1600, 2500, 3600]
-
-# Contar frecuencias manualmente
-frecuencias = [resultados.count(v) for v in valores_posibles]</span>
-
-<span class="fragment highlight-current-blue"># Crear gráfico de barras
-plt.figure(figsize=(9,5))
-bars = plt.bar(valores_posibles, frecuencias, width=150, color='#3B82F6', edgecolor='black')
-
-# Etiquetas de texto sobre cada barra
-for bar, freq in zip(bars, frecuencias):
-    plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + N*0.005,
-             str(freq), ha='center', va='bottom', fontsize=9)
-
-# Personalización del gráfico
-plt.title(f"Distribución de Ganancias/Pérdidas (N = {N:,})", fontsize=14)
-plt.xlabel("Ganancia/Pérdida por partida ($)", fontsize=12)
-plt.ylabel("Frecuencia", fontsize=12)
-plt.xticks(valores_posibles)
-plt.grid(axis='y', linestyle='--', alpha=0.7)
-plt.tight_layout()
-plt.show()</span>
+                    <!-- Bloque 1 -->
+                    <pre class="fragment"><code class="language-python">
+                import random
+                import numpy as np
+                import matplotlib.pyplot as plt
                     </code></pre>
-                </section>
                 
+                    <!-- Bloque 2 -->
+                    <pre class="fragment"><code class="language-python">
+                def jugar():
+                    d1 = random.randint(1, 6)
+                    d2 = random.randint(1, 6)
+                
+                    if d1 == d2:
+                        return 100 * (d1 * d2)
+                    else:
+                        return -200  
+                    </code></pre>
+                
+                    <!-- Bloque 3 -->
+                    <pre class="fragment"><code class="language-python">
+
+                N = int(input("¿Cuántas partidas querés simular? "))
+                    </code></pre>
+                
+                 
+                </section>
+                <section>
+                     <!-- Bloque 4 -->
+                     <pre class="fragment"><code class="language-python">
+                        # Simular el juego N veces
+                        resultados = [jugar() for _ in range(N)]
+                        valor_esperado = np.mean(resultados)
+                        
+                        print("\n---------------------------------------------")
+                        print(f"Simulación con {N:,} partidas")
+                        print(f"Valor esperado aproximado: {valor_esperado:.2f} dólares")
+                        print("---------------------------------------------\n")
+                            </code></pre>
+                        
+                            <!-- Bloque 5 -->
+                            <pre class="fragment"><code class="language-python">
+                        # Valores posibles del juego
+                        valores_posibles = [-200, 100, 400, 900, 1600, 2500, 3600]
+                        
+                        # Contar frecuencias manualmente
+                        frecuencias = [resultados.count(v) for v in valores_posibles]
+                            </code></pre>
+                        
+                            <!-- Bloque 6 -->
+                            <pre class="fragment"><code class="language-python">
+                        # Crear gráfico de barras
+                        plt.figure(figsize=(9,5))
+                        bars = plt.bar(valores_posibles, frecuencias, width=150, color='#3B82F6', edgecolor='black')
+                            </code></pre>
+                        
+                </section>
                 
                 <section>
                     <h3>Simulación Monte Carlo Interactiva</h3>
