@@ -17,9 +17,10 @@
 
 ## SLIDE 2: Introducción
 
-### 2.1: Título
+### 2.1: Título (con fondo fondosimmon.jpg)
 **Hablar:**
 - "Vamos a ver qué es la Simulación de Montecarlo"
+- "Esta es una técnica que combina matemática, estadística y computación para resolver problemas complejos."
 
 ### 2.2: ¿Qué es?
 **Hablar:**
@@ -91,6 +92,7 @@
   3. Generar valores aleatorios
   4. Ejecutar múltiples simulaciones
   5. Analizar los resultados
+- "Vamos a ver cómo aplicamos estos pasos en nuestros ejemplos prácticos."
 
 ---
 
@@ -111,9 +113,10 @@
 **INTERACCIÓN CON AUDIENCIA:**
 - "¿Quién quiere participar? Vamos a lanzar una moneda varias veces."
 - Repartir monedas y papeles para anotar
-- "Vamos a lanzar la moneda [X] veces y anotar cuántas veces sale cara."
+- "Vamos a lanzar la moneda 20-30 veces y anotar cuántas veces sale cara."
 - "Después vamos a calcular la proporción y ver cómo se acerca al 50%."
 - Comparar con la simulación en pantalla
+- "Noten cómo, con pocos lanzamientos, la proporción puede variar mucho, pero con más lanzamientos se estabiliza."
 
 **Hablar:**
 - "Como pueden ver, a medida que aumentamos el número de lanzamientos, la proporción se estabiliza alrededor del 50%."
@@ -152,6 +155,7 @@
 - "Y 30 formas de NO sacar dobles, con probabilidad 30/36."
 - "El valor esperado total es aproximadamente 86.11 dólares."
 - "Esto significa que, a largo plazo, el juego es conveniente para el jugador."
+- "Aquí aplicamos el concepto de **promedio/valor esperado** que vimos antes."
 
 ### 7.4: Código Python (opcional)
 **Hablar:**
@@ -166,6 +170,8 @@
 - "Pueden cambiar el número de partidas y ver cómo el valor esperado se acerca a 86.11 dólares."
 - "A mayor número de simulaciones, más preciso será el resultado."
 - "Esto demuestra el poder de la Simulación de Montecarlo."
+- "Aquí vemos en acción la **Ley de los Grandes Números**: más simulaciones = resultado más cercano al valor esperado real."
+- "También aplicamos el concepto de **muestra**: cada conjunto de N partidas es una muestra que nos permite estimar el valor esperado."
 
 ---
 
@@ -225,6 +231,11 @@
 ### Tiempo estimado:
 - Presentación completa: ~20-25 minutos
 - Incluyendo interacciones: ~30-35 minutos
+
+### Notas sobre audio:
+- **Slide 1**: Audio intro (reproducir con botón, esperar 44 segundos para overlay)
+- **Slide 2 en adelante**: Música épica se reproduce automáticamente
+- **Última slide (J2)**: Audio de aplausos después de 10 segundos
 
 ### Puntos clave a enfatizar:
 1. La Ley de los Grandes Números es fundamental
