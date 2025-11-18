@@ -285,12 +285,6 @@
         Tu navegador no soporta el elemento de audio.
     </audio>
     
-    <!-- Audio de aplausos para la última slide -->
-    <audio id="audioAplausos" preload="auto">
-        <source src="audio/efecto aplausos.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-    
     <div class="reveal">
         <div class="slides">
 
@@ -904,15 +898,12 @@
                 </ul>
             </section>
             <section data-background-color="#8B0000" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
-                <h2 style="color: #FFFFFF; text-align: center; font-size: 1.2em; text-shadow: 2px 2px 4px rgba(0,0,0,0.9); margin-bottom: 40px;">
+                <h2 style="color: #FFFFFF; text-align: center; margin-bottom: 30px; font-size: 2em; text-shadow: 2px 2px 4px rgba(0,0,0,0.9);">
                     Pregunta para reflexionar:
                 </h2>
-                <h1 style="color: #FFFFFF; text-align: center; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.9); margin: 0;">
+                <h1 style="color: #FFFFFF; text-align: center; font-size: 3em; text-shadow: 2px 2px 4px rgba(0,0,0,0.9);">
                     ¿Qué estará haciendo J2?
                 </h1>
-            </section>
-            <section data-background-color="#FFFFFF" class="center" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
-                <img src="gifs/ronda de monos.gif" alt="Ronda de monos" style="max-width: 80%; height: auto;">
             </section>
             
 
@@ -945,14 +936,13 @@
         });
         
         // Control de audio para la primera slide con botón
-        let audioIntro, btnAudio, overlayOscuro, timeoutOverlay, audioEpico, audioAplausos, timeoutAplausos;
+        let audioIntro, btnAudio, overlayOscuro, timeoutOverlay, audioEpico;
         
         Reveal.addEventListener('ready', function() {
             audioIntro = document.getElementById('audioIntro');
             btnAudio = document.getElementById('btnAudio');
             overlayOscuro = document.getElementById('overlayOscuro');
             audioEpico = document.getElementById('audioEpico');
-            audioAplausos = document.getElementById('audioAplausos');
             
             // Ocultar botón si no estamos en la primera slide
             const btnAudioContainer = document.getElementById('btnAudioContainer');
@@ -1038,36 +1028,6 @@
                     audioEpico.play().catch(e => {
                         console.log('Error al reproducir música épica:', e);
                     });
-                }
-                
-                // Detectar si estamos en la última slide (slide de J2 con fondo rojo)
-                // La última slide es la que tiene data-background-color="#8B0000"
-                const currentSlideElement = event.currentSlide;
-                const isLastSlide = currentSlideElement && currentSlideElement.getAttribute('data-background-color') === '#8B0000';
-                
-                // Si estamos en la última slide, reproducir aplausos después de 10 segundos
-                if (isLastSlide && audioAplausos) {
-                    // Cancelar timeout anterior si existe
-                    if (timeoutAplausos) {
-                        clearTimeout(timeoutAplausos);
-                    }
-                    // Reproducir aplausos después de 10 segundos
-                    timeoutAplausos = setTimeout(function() {
-                        if (audioAplausos) {
-                            audioAplausos.play().catch(e => {
-                                console.log('Error al reproducir aplausos:', e);
-                            });
-                        }
-                    }, 10000); // 10 segundos
-                } else {
-                    // Si salimos de la última slide, cancelar el timeout
-                    if (timeoutAplausos) {
-                        clearTimeout(timeoutAplausos);
-                    }
-                    if (audioAplausos && !audioAplausos.paused) {
-                        audioAplausos.pause();
-                        audioAplausos.currentTime = 0; // Reiniciar el audio
-                    }
                 }
             } else if (event.indexh === 0 && event.indexv === 0) {
                 // Si volvemos a la primera slide
