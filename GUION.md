@@ -4,14 +4,16 @@
 ---
 
 ## SLIDE 1: Presentación del Equipo
-**Acción:** Reproducir audio intro (botón play)
-- Esperar 44 segundos (overlay oscuro)
-- Mostrar slide con fondo de fuego
+**Acción:** 
+- Reproducir audio intro (botón play)
+- Esperar 44 segundos (overlay oscuro se desvanece automáticamente)
+- **Entrar cuando en el audio salgan nuestros nombres**
+- El fondo de fuego se muestra automáticamente
 
 **Hablar:**
-- "Buenos días/tardes. Somos el Grupo 2."
-- Presentar a cada integrante
 - "Hoy vamos a hablar sobre Simulación de Montecarlo"
+- Esperar a que termine el audio y los aplausos
+- **Pasar a la slide 2 después de los aplausos**
 
 ---
 
