@@ -287,7 +287,7 @@
     
     <!-- Audio de aplausos para la última slide -->
     <audio id="audioAplausos" preload="auto">
-        <source src="audio/efecto aplausos.mp3" type="audio/mpeg">
+        <source src="audio/Efecto de Aplausos.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
     
@@ -1038,7 +1038,7 @@
                 }
                 
                 // Detectar si estamos en la slide de J2 (última slide con fondo rojo)
-                const currentSlide = event.currentSlide || Reveal.getCurrentSlide();
+                const currentSlide = Reveal.getCurrentSlide();
                 const bgColor = currentSlide ? currentSlide.getAttribute('data-background-color') : null;
                 const isJ2Slide = bgColor === '#8B0000';
                 
@@ -1051,6 +1051,7 @@
                     // Reproducir aplausos después de 10 segundos
                     timeoutAplausos = setTimeout(function() {
                         if (audioAplausos) {
+                            console.log('Reproduciendo aplausos...');
                             audioAplausos.play().catch(e => {
                                 console.log('Error al reproducir aplausos:', e);
                             });
