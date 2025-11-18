@@ -173,8 +173,9 @@
 
 ### 8.1: Conclusiones generales
 **Hablar:**
-- "La simulación de Monte Carlo permite entender mejor la variabilidad, el riesgo y la incertidumbre en problemas complejos."
-- "Siempre que se aplique con rigor estadístico, es una herramienta muy poderosa."
+- "La simulación de Monte Carlo es una herramienta poderosa que nos permite estimar resultados en situaciones de incertidumbre mediante la repetición de experimentos aleatorios."
+- "Como vimos en los ejemplos, a mayor número de simulaciones, más precisos serán nuestros resultados, demostrando la Ley de los Grandes Números en acción."
+- "Sin embargo, es fundamental aplicarla con rigor estadístico para obtener conclusiones confiables."
 
 ### 8.2: Ventajas
 **Hablar:**
